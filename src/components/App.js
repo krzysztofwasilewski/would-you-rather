@@ -1,8 +1,19 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
+import {getData} from '../actions/shared';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
-function App() {
-  return <div className='App'></div>;
+class App extends Component {
+  componentDidMount() {
+    this.props.dispatch(getData());
+  }
+  render() {
+    return <div className='App'></div>;
+  }
 }
+App.propTypes = {
+  dispatch: PropTypes.func.isRequired
+};
 
-export default App;
+export default connect()(App);
