@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {map, partialRight, pick} from 'lodash';
+import {pick, map} from 'ramda';
 import {logIn} from '../actions/authedUser';
 
 class Login extends Component {
@@ -20,13 +20,16 @@ class Login extends Component {
           }}
         >
           <select value={this.state.user} onChange={this.handleChange}>
+            <option value='' disabled>
+              Please select an option...
+            </option>
             {this.props.users.map(({name, id}) => (
               <option key={id} value={id}>
                 {name}
               </option>
             ))}
           </select>
-          <button>Log in</button>
+          <button disabled={!this.state.user}>Log in</button>
         </form>
       </div>
     );
@@ -43,9 +46,8 @@ Login.propTypes = {
   logIn: PropTypes.func.isRequired
 };
 function mapStateToProps({users}) {
-  const picker = partialRight(pick, ['id', 'name']);
   return {
-    users: map(users, picker)
+    users: Object.values(map(pick(['id', 'name']), users))
   };
 }
 
