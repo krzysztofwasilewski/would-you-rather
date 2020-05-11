@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {pick, map} from 'ramda';
+import {pick} from 'ramda';
+import {map} from 'lodash';
 import {logIn} from '../actions/authedUser';
 
 class Login extends Component {
@@ -47,7 +48,7 @@ Login.propTypes = {
 };
 function mapStateToProps({users}) {
   return {
-    users: Object.values(map(pick(['id', 'name']), users))
+    users: map(users, pick(['id', 'name']))
   };
 }
 
