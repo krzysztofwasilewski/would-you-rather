@@ -1,8 +1,45 @@
-import {ADD_USERS} from '../actions/users';
+import {
+  ADD_USERS,
+  ADD_USER_ANSWER,
+  REMOVE_ANSWER_FROM_USER
+} from '../actions/users';
+import {omit} from 'ramda';
+class User {
+  constructor(fromUserObject) {
+    Object.assign(this, fromUserObject);
+  }
+  get score() {
+    return Object.keys(this.answers).length + this.questions.length;
+  }
+}
 export default function (state = {}, action) {
   switch (action.type) {
     case ADD_USERS:
-      return {...state, ...action.users};
+      return {
+        ...state,
+        ...Object.fromEntries(
+          Object.entries(action.users).map(([k, v]) => [k, new User(v)])
+        )
+      };
+    case ADD_USER_ANSWER:
+      return {
+        ...state,
+        [action.user]: new User({
+          ...state[action.user],
+          answers: {
+            ...state[action.user].answers,
+            [action.qid]: action.answer
+          }
+        })
+      };
+    case REMOVE_ANSWER_FROM_USER:
+      return {
+        ...state,
+        [action.user]: new User({
+          ...state[action.user],
+          answers: omit([action.qid], state[action.user].answers)
+        })
+      };
     default:
       break;
   }
