@@ -1,24 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {pick} from 'lodash';
+import {pick} from 'ramda';
+import {logOut} from '../actions/authedUser';
 
-const Profile = ({name, avatarURL}) => {
+const Profile = ({name, avatarURL, logOut}) => {
   return (
     <div>
       <span>{`Hello, ${name}`}</span>
       <img src={avatarURL} alt={`Avatar for ${name}`}></img>
-      <NavLink to='/login'>Log out</NavLink>
+      <button onClick={() => logOut()}>Log out</button>
     </div>
   );
 };
 Profile.propTypes = {
   name: PropTypes.string.isRequired,
-  avatarURL: PropTypes.string.isRequired
+  avatarURL: PropTypes.string.isRequired,
+  logOut: PropTypes.func.isRequired
 };
 
 function mapStateToProps({users, authedUser}) {
-  return pick(users[authedUser], ['name', 'avatarURL']);
+  return pick(['name', 'avatarURL'], users[authedUser]);
 }
-export default connect(mapStateToProps)(Profile);
+
+const mapDispatchToProps = {
+  logOut
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

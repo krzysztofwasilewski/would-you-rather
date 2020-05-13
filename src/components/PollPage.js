@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import AnsweredPoll from './AnsweredPoll';
-import {UnansweredPoll} from './UnansweredPoll';
+import UnansweredPoll from './UnansweredPoll';
 
-const PollPage = ({answered, id}) => {
+const PollPage = ({answered, match}) => {
+  const id = match.params.id;
   return (
     <div>
       {answered ? <AnsweredPoll id={id} /> : <UnansweredPoll id={id} />}
@@ -13,7 +14,11 @@ const PollPage = ({answered, id}) => {
 
 PollPage.propTypes = {
   answered: PropTypes.bool.isRequired,
-  id: PropTypes.string.isRequired
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired
+    }).isRequired
+  }).isRequired
 };
 
 export default PollPage;
