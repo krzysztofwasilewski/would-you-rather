@@ -9,6 +9,7 @@ import Home from './Home';
 import NewPoll from './NewPoll';
 import Leaderboard from './LeaderBoard';
 import Login from './Login';
+import PollPage from './PollPage';
 
 class App extends Component {
   componentDidMount() {
@@ -20,14 +21,13 @@ class App extends Component {
         {this.props.authedUser ? (
           <Router>
             <>
-              <Header />
+              <Header authedUser={this.props.authedUser} />
               <Route exact path='/' component={Home} />
-              <Route path='/add'>
-                <NewPoll />
-              </Route>
+              <Route path='/add' component={NewPoll} />
               <Route path='/leaderboard'>
                 <Leaderboard />
               </Route>
+              <Route path='/question/:id' component={PollPage} />
             </>
           </Router>
         ) : (
