@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {add} from 'ramda';
 import Result from './Result';
+import Avatar from './Avatar';
 
 const AnsweredPoll = ({poll, author, authedUser}) => {
   const {optionOne, optionTwo} = poll;
@@ -13,7 +14,7 @@ const AnsweredPoll = ({poll, author, authedUser}) => {
   return (
     <div>
       <div>
-        <img src={author.avatarURL} alt={`Avatar of ${author.name}`} />
+        <Avatar name={author.name} avatarURL={author.avatarURL} />
       </div>
       <div>
         <h2>result</h2>

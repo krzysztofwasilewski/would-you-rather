@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {pick} from 'ramda';
 import {connect} from 'react-redux';
-
+import Avatar from './Avatar';
 import {saveAnswer} from '../actions/shared';
 
 class UnansweredPoll extends Component {
@@ -22,7 +22,7 @@ class UnansweredPoll extends Component {
       <div>
         <h2>{`${name} asks:`}</h2>
         <div>
-          <img src={avatarURL}></img>
+          <Avatar name={name} avatarURL={avatarURL} />
         </div>
         <form onSubmit={this.handleSubmit}>
           <fieldset>

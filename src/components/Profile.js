@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {pick} from 'ramda';
 import {logOut} from '../actions/authedUser';
-
+import Avatar from './Avatar';
 const Profile = ({name, avatarURL, logOut}) => {
   return (
     <div>
       <span>{`Hello, ${name}`}</span>
-      <img src={avatarURL} alt={`Avatar for ${name}`}></img>
+      <Avatar name={name} avatarURL={avatarURL} />
       <button onClick={() => logOut()}>Log out</button>
     </div>
   );

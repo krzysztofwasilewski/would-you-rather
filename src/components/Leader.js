@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import Avatar from './Avatar';
 
 const Leader = ({user}) => {
   console.log(user, user.score);
   return (
     <div>
       <div>
-        <img src={user.avatarURL} />
+        <Avatar name={user.name} avatarURL={user.avatarURL} />
       </div>
       <div>
         <h2>{user.name}</h2>
