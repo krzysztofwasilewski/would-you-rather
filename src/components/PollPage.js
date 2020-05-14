@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import AnsweredPoll from './AnsweredPoll';
 import UnansweredPoll from './UnansweredPoll';
+import {connect} from 'react-redux';
 
 const PollPage = ({answered, match}) => {
   const id = match.params.id;
@@ -21,4 +22,10 @@ PollPage.propTypes = {
   }).isRequired
 };
 
-export default PollPage;
+function mapStateToProps({users, authedUser}, {match}) {
+  return {
+    answered: match.params.id in users[authedUser].answers
+  };
+}
+
+export default connect(mapStateToProps)(PollPage);

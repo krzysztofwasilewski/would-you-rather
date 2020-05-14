@@ -2,12 +2,21 @@ import PropTypes from 'prop-types';
 import {difference} from 'ramda';
 import React from 'react';
 import {connect} from 'react-redux';
-import UnansweredPoll from './UnansweredPoll';
+import PollPreview from './PollPreview';
+import {Link} from 'react-router-dom';
 const UnansweredPollList = ({questionIds}) => (
   <div>
     {questionIds.map(id => (
-      <UnansweredPoll key={id} id={id} />
+      <PollPreview key={id} id={id} />
     ))}
+    {!questionIds.length && (
+      <div>
+        <p>
+          Nothing to see here. <Link to='/add'>Create</Link> more polls here to
+          keep the game going
+        </p>
+      </div>
+    )}
   </div>
 );
 

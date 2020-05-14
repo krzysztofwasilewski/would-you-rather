@@ -1,19 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Redirect} from 'react-router-dom';
 import AnsweredPollList from './AnsweredPollList';
 import UnansweredPollList from './UnansweredPollList';
 
 const Home = ({location, match}) => {
+  const {url} = match;
+
   return (
     <>
+      {!location.search && <Redirect to='/?a' />}
       <nav>
         <ul>
           <li>
-            <NavLink to={`${match.url}?a`}>Answered</NavLink>
+            <NavLink to={{pathname: url, search: '?a'}}>Answered</NavLink>
           </li>
           <li>
-            <NavLink to={`${match.url}?u`}>Unanswered</NavLink>
+            <NavLink to={{pathname: url, search: '?u'}}>Unanswered</NavLink>
           </li>
         </ul>
       </nav>
