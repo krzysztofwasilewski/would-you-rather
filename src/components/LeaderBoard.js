@@ -5,7 +5,7 @@ import Leader from './Leader';
 
 const LeaderBoard = ({ids}) => {
   return (
-    <div>
+    <div className='centerColumn'>
       {ids.map(id => (
         <Leader key={id} id={id} />
       ))}

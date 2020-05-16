@@ -6,8 +6,232 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+@viewport {
+  width: 100vw; /*Sets the width of the actual viewport to the device width*/
+  zoom: 1;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.centerColumn {
+  width: 50%;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: rgba(0, 0, 0.9, 0.1);
+}
+
+.nav {
+  display: inline-block;
+}
+
+.header > .nav {
+}
+.nav ul {
+  list-style-type: none;
+}
+.nav li {
+  display: inline-block;
+  padding: 10px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  border-bottom: 1px solid grey;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 2;
+}
+
+.profile {
+  display: inline-block;
+  margin: 16px 40px;
+}
+
+.card {
+  border: 1px grey solid;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 10px;
+  border-color: blue;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.focusExpandable {
+  transform: scale(0.99);
+  transition: 0.1s ease-in-out;
+}
+.focusExpandable:hover {
+  transform: scale(1);
+}
+
+.card > h2 {
+  border-bottom: 1px solid grey;
+  padding: 5px;
+}
+
+.avatarSection {
+  /* text-align: center; */
+  /* vertical-align: middle; */
+
+  /* align-items: center; */
+  /* height: 100%; */
+  width: 33%;
+  /* float: left; */
+  flex: 0 0 96px;
+  /* border: 1px solid grey; */
+  /* border-image: linear-gradient(to top, white, grey 15%, lightgrey 85%, white) 1 /0 */
+  /* 1px 0 0; */
+  align-items: stretch;
+}
+.avatarSection img {
+}
+.contentSection {
+  padding: 10px;
+  /* border: 1px solid grey; */
+  /* border-image: linear-gradient(to top, white, grey 15%, lightgrey 85%, white) 1 /0 */
+  /* 0 0 1px; */
+  width: 66%;
+  /* float: right; */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.barContainer {
+  background-color: lightgrey;
+  border-radius: 3px;
+  width: 90%;
+  margin: auto;
+}
+
+.bar {
+  background-color: lightblue;
+  border-radius: 3px;
+  text-align: center;
+}
+@keyframes votePulse {
+  100% {
+    transform: scale(0.5);
+  }
+}
+.yourVote {
+  position: absolute;
+  top: -5%;
+  right: -35px;
+  border-radius: 50%;
+  background: magenta;
+  padding: 20px;
+  box-shadow: inset 0 0 50px #fff, /* inner white */ inset 20px 0 80px #f0f,
+    /* inner left magenta short */ inset -20px 0 80px #0ff,
+    /* inner right cyan short */ inset 20px 0 300px #f0f,
+    /* inner left magenta broad */ inset -20px 0 300px #0ff,
+    /* inner right cyan broad */ 0 0 50px #fff,
+    /* outer white */ -10px 0 80px #f0f,
+    /* outer left magenta */ 10px 0 80px #0ff; /* outer right cyan */
+  animation: votePulse 0.5s ease-in-out alternate infinite;
+  transform: scale(0.4);
+  /* clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  ); */
+  clip-path: url(#p0);
+}
+.result {
+  position: relative;
+  overflow: visible;
+}
+
+.buttonLink {
+  appearance: button;
+  padding: 10px 16px;
+  background-color: lightblue;
+  border: 1px solid grey;
+  border-radius: 3px;
+  margin: auto;
+  text-decoration: none;
+  color: grey;
+  transition-duration: 0.2s;
+  transition-property: box-shadow;
+}
+.buttonLink:hover {
+  box-shadow: 0 0 2px 2px lightblue;
+}
+
+.buttonLink:active {
+  box-shadow: 0 0 4px 4px lightblue;
+  /* color: black; */
+}
+
+.scoreBox {
+  text-align: center;
+  border: 1px solid grey;
+  border-radius: 3px;
+  padding: 0 18px;
+  align-self: center;
+}
+
+.button {
+  padding: 10px 16px;
+  background-color: lightblue;
+  border: 1px solid grey;
+  border-radius: 3px;
+  margin: auto;
+  text-decoration: none;
+  transition-duration: 0.2s;
+  transition-property: box-shadow;
+}
+button:hover {
+  box-shadow: 0 0 2px 2px lightblue;
+}
+
+.button:active {
+  box-shadow: 0 0 4px 4px lightblue;
+  /* color: black; */
+}
+
+.newPollOptions {
+  list-style-type: none;
+}
+
+input {
+  padding: 10px;
+  margin: 10px;
+}
+
+table {
+  margin: 10px;
+}
+
+select {
+  padding: 10px;
+  margin: 10px;
+}
+
+.loginScreen {
+  margin: auto;
+  text-align: center;
 }

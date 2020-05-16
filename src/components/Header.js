@@ -5,7 +5,7 @@ import Navigation from './Navigation'
 import Profile from './Profile'
 
 const Header = ({ authedUser }) => {
-    return <div>
+    return <div className='header'>
         <Navigation />
         {authedUser && <Profile />}
     </div>

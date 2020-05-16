@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 const PollPage = ({answered, match}) => {
   const id = match.params.id;
   return (
-    <div>
+    <div className='centerColumn'>
       {answered ? <AnsweredPoll id={id} /> : <UnansweredPoll id={id} />}
     </div>
   );

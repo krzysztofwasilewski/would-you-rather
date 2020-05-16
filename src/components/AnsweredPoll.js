@@ -12,12 +12,12 @@ const AnsweredPoll = ({poll, author, authedUser}) => {
     .reduce(add);
   console.log('total votes: ', totalVotes);
   return (
-    <div>
-      <div>
+    <div className='card'>
+      <div className='avatarSection'>
         <Avatar name={author.name} avatarURL={author.avatarURL} />
       </div>
-      <div>
-        <h2>result</h2>
+      <div className='contentSection'>
+        <h2>Result</h2>
         {[optionOne, optionTwo].map(option => (
           <Result
             key={option.text}

@@ -6,15 +6,17 @@ import Avatar from './Avatar';
 
 const PollPreview = ({poll, author}) => {
   return (
-    <div>
-      <h2>{`${author.name} is asking:`}</h2>
-      <div>
+    <div className='card focusExpandable'>
+      <div className='avatarSection'>
         <Avatar name={author.name} avatarURL={author.avatarURL} />
       </div>
-      <div>
+      <div className='contentSection'>
+        <h2>{`${author.name} is asking:`}</h2>
         <h1>Would you rather</h1>
-        <div>…{poll.optionOne.text}…</div>
-        <Link to={`/question/${poll.id}`}>View poll</Link>
+        <p>…{poll.optionOne.text}…</p>
+        <Link className='buttonLink' to={`/question/${poll.id}`}>
+          View poll
+        </Link>
       </div>
     </div>
   );

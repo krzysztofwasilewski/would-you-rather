@@ -21,13 +21,13 @@ class UnansweredPoll extends Component {
     return (
       <div>
         <h2>{`${name} asks:`}</h2>
-        <div>
+        <div className='avatarSection'>
           <Avatar name={name} avatarURL={avatarURL} />
         </div>
         <form onSubmit={this.handleSubmit}>
           <fieldset>
             <legend>Would you rather…</legend>
-            <ul>
+            <ul className='newPollOptions'>
               {[
                 ['optionOne', optionOneText],
                 ['optionTwo', optionTwoText]
@@ -45,7 +45,9 @@ class UnansweredPoll extends Component {
                 </li>
               ))}
             </ul>
-            <button disabled={!this.state.value}>Submit</button>
+            <button className='button' disabled={!this.state.value}>
+              Submit
+            </button>
           </fieldset>
         </form>
       </div>

@@ -21,28 +21,39 @@ class NewPoll extends Component {
   };
   render() {
     return (
-      <div>
+      <div className='centerColumn'>
         <form onSubmit={this.handleSubmitForm}>
           <fieldset>
             <legend>Would you rather:</legend>
-            <ul>
+            <ul className='newPollOptions'>
               <li>
-                <input
-                  type='text'
-                  autoFocus
-                  value={this.state.optionOneText}
-                  onChange={this.handleTextChange('optionOneText')}
-                />
+                <label>
+                  Option 1:
+                  <input
+                    type='text'
+                    autoFocus
+                    value={this.state.optionOneText}
+                    onChange={this.handleTextChange('optionOneText')}
+                    placeholder='Eg. be rich'
+                  />
+                </label>
               </li>
               <li>
-                <input
-                  type='text'
-                  value={this.state.optionTwoText}
-                  onChange={this.handleTextChange('optionTwoText')}
-                />
+                <label>
+                  Option 2:
+                  <input
+                    type='text'
+                    value={this.state.optionTwoText}
+                    onChange={this.handleTextChange('optionTwoText')}
+                    placeholder='Eg. be smart'
+                  />
+                </label>
               </li>
             </ul>
-            <button disabled={pipe(values, any(isEmpty))(this.state)}>
+            <button
+              className='button'
+              disabled={pipe(values, any(isEmpty))(this.state)}
+            >
               Submit
             </button>
           </fieldset>

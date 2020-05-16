@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
+
 import {getData} from '../actions/shared';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';

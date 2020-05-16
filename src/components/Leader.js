@@ -6,11 +6,11 @@ import Avatar from './Avatar';
 const Leader = ({user}) => {
   console.log(user, user.score);
   return (
-    <div>
-      <div>
+    <div className='card'>
+      <div className='avatarSection'>
         <Avatar name={user.name} avatarURL={user.avatarURL} />
       </div>
-      <div>
+      <div className='contentSection'>
         <h2>{user.name}</h2>
         <table>
           <tbody>
@@ -24,10 +24,10 @@ const Leader = ({user}) => {
             </tr>
           </tbody>
         </table>
-      </div>
-      <div>
-        <h3>Score</h3>
-        <div>{user.score}</div>
+        <div className='scoreBox'>
+          <h3>Score</h3>
+          <p>{user.score}</p>
+        </div>
       </div>
     </div>
   );

@@ -8,9 +8,9 @@ const Home = ({location, match}) => {
   const {url} = match;
 
   return (
-    <>
+    <div className='home centerColumn'>
       {!location.search && <Redirect to='/?a' />}
-      <nav>
+      <nav className='nav'>
         <ul>
           <li>
             <NavLink to={{pathname: url, search: '?a'}}>Answered</NavLink>
@@ -23,7 +23,7 @@ const Home = ({location, match}) => {
       {location.search === '?a' && <AnsweredPollList />}
 
       {location.search === '?u' && <UnansweredPollList />}
-    </>
+    </div>
   );
 };
 

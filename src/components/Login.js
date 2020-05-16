@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {pick} from 'ramda';
 import {map} from 'lodash';
 import {logIn} from '../actions/authedUser';
+import Avatar from './Avatar';
 
 class Login extends Component {
   state = {
@@ -12,7 +13,7 @@ class Login extends Component {
   handleChange = e => this.setState({user: e.target.value});
   render() {
     return (
-      <div>
+      <div className='loginScreen'>
         <h2>Please log in</h2>
         <form
           onSubmit={e => {
@@ -30,7 +31,9 @@ class Login extends Component {
               </option>
             ))}
           </select>
-          <button disabled={!this.state.user}>Log in</button>
+          <button className='button' disabled={!this.state.user}>
+            Log in
+          </button>
         </form>
       </div>
     );

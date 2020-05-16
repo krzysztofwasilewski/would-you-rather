@@ -6,10 +6,12 @@ import {logOut} from '../actions/authedUser';
 import Avatar from './Avatar';
 const Profile = ({name, avatarURL, logOut}) => {
   return (
-    <div>
+    <div className='profile'>
       <span>{`Hello, ${name}`}</span>
-      <Avatar name={name} avatarURL={avatarURL} />
-      <button onClick={() => logOut()}>Log out</button>
+      <Avatar name={name} avatarURL={avatarURL} size={36} />
+      <button className='button' onClick={() => logOut()}>
+        Log out
+      </button>
     </div>
   );
 };
