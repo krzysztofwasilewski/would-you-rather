@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import {pick} from 'ramda';
 import {map} from 'lodash';
 import {logIn} from '../actions/authedUser';
-import Avatar from './Avatar';
 
 class Login extends Component {
   state = {
