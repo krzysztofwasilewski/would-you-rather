@@ -19,7 +19,8 @@ code {
   width: 50%;
   margin: 100px auto;
   padding: 20px;
-  background-color: rgba(0, 0, 0.9, 0.1);
+  background-color: rgba(253, 235, 253, 1);
+  border-radius: 6px;
 }
 
 .nav {
@@ -192,6 +193,7 @@ img {
   border-radius: 3px;
   padding: 0 18px;
   align-self: center;
+  background-color: #b8a4d6;
 }
 
 .button {
@@ -220,6 +222,9 @@ button:hover {
 input {
   padding: 10px;
   margin: 10px;
+}
+input[type='text'] {
+  background-color: #fef4ff;
 }
 
 table {
