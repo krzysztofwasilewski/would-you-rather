@@ -1,10 +1,9 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Montserrat, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-weight: 300;
 }
 @viewport {
   width: 100vw; /*Sets the width of the actual viewport to the device width*/
@@ -25,6 +24,10 @@ code {
 
 .nav {
   display: inline-block;
+}
+h2,
+h3 {
+  font-weight: 400;
 }
 
 .header > .nav {
@@ -60,7 +63,7 @@ code {
   border-radius: 5px;
   overflow: hidden;
   margin: 10px;
-  border-color: blue;
+  border-color: #9991ff;
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
