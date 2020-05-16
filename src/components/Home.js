@@ -13,10 +13,26 @@ const Home = ({location, match}) => {
       <nav className='nav'>
         <ul>
           <li>
-            <NavLink to={{pathname: url, search: '?a'}}>Answered</NavLink>
+            <NavLink
+              className='navLink'
+              activeClassName='activeNavLink'
+              exact
+              isActive={() => location.search === '?a'}
+              to={{pathname: url, search: '?a'}}
+            >
+              Answered
+            </NavLink>
           </li>
           <li>
-            <NavLink to={{pathname: url, search: '?u'}}>Unanswered</NavLink>
+            <NavLink
+              className='navLink'
+              activeClassName='activeNavLink'
+              exact
+              isActive={() => location.search === '?u'}
+              to={{pathname: url, search: '?u'}}
+            >
+              Unanswered
+            </NavLink>
           </li>
         </ul>
       </nav>

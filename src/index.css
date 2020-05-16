@@ -235,3 +235,10 @@ select {
   margin: auto;
   text-align: center;
 }
+
+.navLink {
+  text-decoration: none;
+}
+.activeNavLink {
+  text-decoration: underline;
+}

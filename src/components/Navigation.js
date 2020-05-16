@@ -5,13 +5,32 @@ const Navigation = () => {
     <nav className='nav'>
       <ul>
         <li>
-          <NavLink to='/'>Home</NavLink>
+          <NavLink
+            className='navLink'
+            activeClassName='activeNavLink'
+            exact
+            to='/'
+          >
+            Home
+          </NavLink>
         </li>
         <li>
-          <NavLink to='/add'>New Poll</NavLink>
+          <NavLink
+            className='navLink'
+            activeClassName='activeNavLink'
+            to='/add'
+          >
+            New Poll
+          </NavLink>
         </li>
         <li>
-          <NavLink to='/leaderboard'>Leaderboard</NavLink>
+          <NavLink
+            className='navLink'
+            activeClassName='activeNavLink'
+            to='/leaderboard'
+          >
+            Leaderboard
+          </NavLink>
         </li>
       </ul>
     </nav>
