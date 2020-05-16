@@ -57,6 +57,9 @@ h3 {
   display: inline-block;
   margin: 16px 40px;
 }
+.profile > img {
+  padding: 10px;
+}
 
 .card {
   border: 1px grey solid;
