@@ -19,7 +19,7 @@ LeaderBoard.propTypes = {
 
 function mapStateToProps({users}) {
   const keys = Object.keys(users).sort(
-    (k1, k2) => users[k1].score - users[k2].score
+    (k1, k2) => users[k2].score - users[k1].score
   );
   return {
     ids: keys
