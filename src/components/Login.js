@@ -22,7 +22,7 @@ class Login extends Component {
         >
           <select value={this.state.user} onChange={this.handleChange}>
             <option value='' disabled>
-              Please select an option...
+              Please select your user name...
             </option>
             {this.props.users.map(({name, id}) => (
               <option key={id} value={id}>
