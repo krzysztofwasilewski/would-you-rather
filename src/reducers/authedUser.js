@@ -6,6 +6,8 @@ export default function (state = null, {type, userId}) {
       return userId;
     case LOG_OUT:
       return null;
+    default:
+      break;
   }
   return state;
 }

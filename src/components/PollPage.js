@@ -28,8 +28,8 @@ PollPage.propTypes = {
 
 function mapStateToProps({users, authedUser, questions}, {match}) {
   return {
-    answered: match.params.id in users[authedUser].answers,
-    exists: match.params.id in questions,
+    answered: match.params.id in (users?.[authedUser]?.answers ?? {}),
+    exists: match.params.id in (questions ?? {}),
     id: match.params.id
   };
 }

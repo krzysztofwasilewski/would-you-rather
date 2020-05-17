@@ -28,7 +28,7 @@ function mapStateToProps({users, questions, authedUser}) {
   return {
     questionIds: difference(
       Object.keys(questions),
-      Object.keys(users[authedUser].answers)
+      Object.keys(users?.[authedUser]?.answers ?? {})
     )
   };
 }

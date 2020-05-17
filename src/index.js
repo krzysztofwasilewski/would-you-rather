@@ -6,8 +6,8 @@ import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import reducer from './reducers/';
 import middleware from './middleware';
-
-const store = createStore(reducer, middleware);
+const authedUser = window.sessionStorage.getItem('userId');
+const store = createStore(reducer, {authedUser}, middleware);
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

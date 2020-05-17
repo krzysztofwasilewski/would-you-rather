@@ -7,7 +7,7 @@ import Avatar from './Avatar';
 const Profile = ({name, avatarURL, logOut}) => {
   return (
     <div className='profile'>
-      <span>{`Hello, ${name}`}</span>
+      <span>{name && `Hello, ${name}`}</span>
       <Avatar name={name} avatarURL={avatarURL} size={36} />
       <button className='button' onClick={() => logOut()}>
         Log out
@@ -22,7 +22,13 @@ Profile.propTypes = {
 };
 
 function mapStateToProps({users, authedUser}) {
-  return pick(['name', 'avatarURL'], users[authedUser]);
+  return pick(
+    ['name', 'avatarURL'],
+    users?.[authedUser] ?? {
+      name: '',
+      avatarURL: ''
+    }
+  );
 }
 
 const mapDispatchToProps = {

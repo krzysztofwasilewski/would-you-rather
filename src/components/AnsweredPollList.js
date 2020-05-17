@@ -16,7 +16,7 @@ AnsweredPollList.propTypes = {
 
 function mapStateToProps({users, authedUser}) {
   return {
-    questionIds: Object.keys(users[authedUser].answers)
+    questionIds: Object.keys(users?.[authedUser]?.answers ?? {})
   };
 }
 export default connect(mapStateToProps)(AnsweredPollList);
