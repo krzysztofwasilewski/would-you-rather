@@ -14,9 +14,11 @@ AnsweredPollList.propTypes = {
   questionIds: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
-function mapStateToProps({users, authedUser}) {
+function mapStateToProps({users, authedUser, questions}) {
   return {
-    questionIds: Object.keys(users?.[authedUser]?.answers ?? {})
+    questionIds: Object.keys(users?.[authedUser]?.answers ?? {}).sort(
+      (keyA, keyB) => questions[keyB].timestamp - questions[keyA].timestamp
+    )
   };
 }
 export default connect(mapStateToProps)(AnsweredPollList);

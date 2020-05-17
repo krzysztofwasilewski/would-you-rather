@@ -29,6 +29,8 @@ function mapStateToProps({users, questions, authedUser}) {
     questionIds: difference(
       Object.keys(questions),
       Object.keys(users?.[authedUser]?.answers ?? {})
+    ).sort(
+      (keyA, keyB) => questions[keyB].timestamp - questions[keyA].timestamp
     )
   };
 }
