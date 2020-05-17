@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import AnsweredPoll from './AnsweredPoll';
 import UnansweredPoll from './UnansweredPoll';
 import {connect} from 'react-redux';
-import {Redirect} from 'react-router-dom';
 
 const PollPage = ({answered, exists, id}) => {
   return exists ? (
