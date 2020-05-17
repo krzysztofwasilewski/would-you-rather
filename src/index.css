@@ -15,10 +15,11 @@ code {
 }
 
 .centerColumn {
-  width: 50%;
+  width: 66.7%;
   margin: 100px auto;
   padding: 20px;
-  background-color: rgba(253, 235, 253, 1);
+  background-color: rgb(255, 245, 255);
+
   border-radius: 6px;
 }
 
@@ -66,12 +67,13 @@ h3 {
   border-radius: 5px;
   overflow: hidden;
   margin: 10px;
-  border-color: #9991ff;
+  border-color: #a9a2f9;
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+  background-color: rgb(253, 235, 253);
 }
 
 .focusExpandable {
@@ -222,7 +224,12 @@ button:hover {
 }
 
 .newPollOptions {
-  list-style-type: none;
+  align-items: baseline;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-gap: 5px;
+  /* text-align: center; */
 }
 
 input {
@@ -252,4 +259,12 @@ select {
 }
 .activeNavLink {
   text-decoration: underline;
+}
+
+fieldset {
+  border: 1px solid grey;
+}
+
+button[type='submit'] {
+  display: block;
 }

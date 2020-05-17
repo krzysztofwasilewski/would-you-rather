@@ -20,10 +20,10 @@ class UnansweredPoll extends Component {
     const {name, avatarURL, optionOneText, optionTwoText} = this.props;
     return (
       <div>
-        <h2>{`${name} asks:`}</h2>
         <div className='avatarSection'>
           <Avatar name={name} avatarURL={avatarURL} />
         </div>
+        <h2>{`${name} asks:`}</h2>
         <form onSubmit={this.handleSubmit}>
           <fieldset>
             <legend>Would you rather…</legend>
@@ -31,21 +31,27 @@ class UnansweredPoll extends Component {
               {[
                 ['optionOne', optionOneText],
                 ['optionTwo', optionTwoText]
-              ].map(([option, text]) => (
+              ].map(([option, text], index) => (
                 <li key={option}>
                   <label>
                     <input
                       type='radio'
                       value={option}
+                      autoFocus={!index}
                       checked={this.state.value === option}
                       onChange={this.handleChange}
+                      name='optionPicker'
                     />
                     {text}
                   </label>
                 </li>
               ))}
             </ul>
-            <button className='button' disabled={!this.state.value}>
+            <button
+              type='submit'
+              className='button'
+              disabled={!this.state.value}
+            >
               Submit
             </button>
           </fieldset>

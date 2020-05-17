@@ -25,32 +25,31 @@ class NewPoll extends Component {
         <form onSubmit={this.handleSubmitForm}>
           <fieldset>
             <legend>Would you rather:</legend>
-            <ul className='newPollOptions'>
-              <li>
-                <label>
-                  Option 1:
-                  <input
-                    type='text'
-                    autoFocus
-                    value={this.state.optionOneText}
-                    onChange={this.handleTextChange('optionOneText')}
-                    placeholder='Eg. be rich'
-                  />
-                </label>
-              </li>
-              <li>
-                <label>
-                  Option 2:
-                  <input
-                    type='text'
-                    value={this.state.optionTwoText}
-                    onChange={this.handleTextChange('optionTwoText')}
-                    placeholder='Eg. be smart'
-                  />
-                </label>
-              </li>
-            </ul>
+            <div className='newPollOptions'>
+              {/* <li> */}
+              <label htmlFor={this.state.optionOneText}>Option 1:</label>
+              <input
+                type='text'
+                id={this.state.optionOneText}
+                autoFocus
+                value={this.state.optionOneText}
+                onChange={this.handleTextChange('optionOneText')}
+                placeholder='Eg. be rich'
+              />
+              {/* </li> */}
+              {/* <li> */}
+              <label htmlFor={this.state.optionTwoText}>Option 2:</label>
+              <input
+                type='text'
+                id={this.state.optionTwoText}
+                value={this.state.optionTwoText}
+                onChange={this.handleTextChange('optionTwoText')}
+                placeholder='Eg. be smart'
+              />
+              {/* </li> */}
+            </div>
             <button
+              type='submit'
               className='button'
               disabled={pipe(values, any(isEmpty))(this.state)}
             >
