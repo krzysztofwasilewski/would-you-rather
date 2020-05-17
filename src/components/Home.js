@@ -9,7 +9,7 @@ const Home = ({location, match}) => {
 
   return (
     <div className='home centerColumn'>
-      {!location.search && <Redirect to='/?a' />}
+      {!location.search && <Redirect to='/?u' />}
       <nav className='nav'>
         <ul>
           <li>
