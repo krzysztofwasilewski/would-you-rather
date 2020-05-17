@@ -8,7 +8,7 @@ const PollPreview = ({poll, author}) => {
   return (
     <div className='card focusExpandable'>
       <div className='avatarSection'>
-        <Avatar name={author.name} avatarURL={author.avatarURL} />
+        <Avatar name={author.name} avatarURL={author.avatarURL} size={192} />
       </div>
       <div className='contentSection'>
         <h2>{`${author.name} is asking:`}</h2>

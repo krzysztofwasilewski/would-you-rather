@@ -8,7 +8,7 @@ const Leader = ({user}) => {
   return (
     <div className='card'>
       <div className='avatarSection'>
-        <Avatar name={user.name} avatarURL={user.avatarURL} />
+        <Avatar name={user.name} avatarURL={user.avatarURL} size={192} />
       </div>
       <div className='contentSection'>
         <h2>{user.name}</h2>

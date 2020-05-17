@@ -14,7 +14,7 @@ const AnsweredPoll = ({poll, author, authedUser}) => {
   return (
     <div className='card'>
       <div className='avatarSection'>
-        <Avatar name={author.name} avatarURL={author.avatarURL} />
+        <Avatar name={author.name} avatarURL={author.avatarURL} size={192} />
       </div>
       <div className='contentSection'>
         <h2>Result</h2>

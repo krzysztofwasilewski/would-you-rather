@@ -175,7 +175,7 @@ img {
 }
 
 .buttonLink {
-  appearance: button;
+  /* appearance: button; */
   padding: 10px 16px;
   background-color: lightblue;
   border: 1px solid grey;

@@ -21,7 +21,7 @@ class UnansweredPoll extends Component {
     return (
       <div>
         <div className='avatarSection'>
-          <Avatar name={name} avatarURL={avatarURL} />
+          <Avatar name={name} avatarURL={avatarURL} size={192} />
         </div>
         <h2>{`${name} asks:`}</h2>
         <form onSubmit={this.handleSubmit}>
