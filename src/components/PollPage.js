@@ -11,7 +11,7 @@ const PollPage = ({answered, exists, id}) => {
       {answered ? <AnsweredPoll id={id} /> : <UnansweredPoll id={id} />}
     </div>
   ) : (
-    <Redirect to='/' />
+    <h1 style={{marginTop: 200}}>404: Question not found!</h1>
   );
 };
 
