@@ -8,6 +8,10 @@ The user who creates and answers the most questions wins.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Going beyound the requirements
+
+On top of the requirements in the project rubric, the app persists the authenticated user in the session storage so that the user doesn't need to log in again after every page refresh.
+
 ## Available Scripts
 
 In the project directory, you can run:
