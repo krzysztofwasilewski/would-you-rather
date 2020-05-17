@@ -268,3 +268,7 @@ fieldset {
 button[type='submit'] {
   display: block;
 }
+
+.table {
+  margin: 20px auto;
+}

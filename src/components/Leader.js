@@ -12,7 +12,7 @@ const Leader = ({user}) => {
       </div>
       <div className='contentSection'>
         <h2>{user.name}</h2>
-        <table>
+        <table className='table'>
           <tbody>
             <tr>
               <td>Answered questions</td>
