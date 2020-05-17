@@ -27,26 +27,25 @@ class UnansweredPoll extends Component {
         <form onSubmit={this.handleSubmit}>
           <fieldset>
             <legend>Would you rather…</legend>
-            <ul className='newPollOptions'>
+            <div className='newPollOptions'>
               {[
                 ['optionOne', optionOneText],
                 ['optionTwo', optionTwoText]
               ].map(([option, text], index) => (
-                <li key={option}>
-                  <label>
-                    <input
-                      type='radio'
-                      value={option}
-                      autoFocus={!index}
-                      checked={this.state.value === option}
-                      onChange={this.handleChange}
-                      name='optionPicker'
-                    />
-                    {text}
-                  </label>
-                </li>
+                <React.Fragment key={option}>
+                  <input
+                    type='radio'
+                    value={option}
+                    autoFocus={!index}
+                    checked={this.state.value === option}
+                    onChange={this.handleChange}
+                    name='optionPicker'
+                    id={option}
+                  />
+                  <label htmlFor={option}>{text}</label>
+                </React.Fragment>
               ))}
-            </ul>
+            </div>
             <button
               type='submit'
               className='button'
