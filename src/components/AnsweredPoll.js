@@ -18,9 +18,9 @@ const AnsweredPoll = ({poll, author, authedUser}) => {
       </div>
       <div className='contentSection'>
         <h2>Result</h2>
-        {[optionOne, optionTwo].map(option => (
+        {[optionOne, optionTwo].map((option, index) => (
           <Result
-            key={option.text}
+            key={option.text + index}
             text={option.text}
             votes={option.votes.length}
             totalVotes={totalVotes}
