@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import {getData} from '../actions/shared';
-import {logIn} from '../actions/authedUser';
+
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from './Header';
