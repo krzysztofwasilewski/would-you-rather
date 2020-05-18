@@ -1,9 +1,20 @@
-import {getUsers, getQuestions, saveQuestionAnswer} from '../utils/API';
-import {addUsers, addUserAnswer, removeAnswerFromUser} from '../actions/users';
+import {
+  getUsers,
+  getQuestions,
+  saveQuestionAnswer,
+  saveQuestion
+} from '../utils/API';
+import {
+  addUsers,
+  addUserAnswer,
+  removeAnswerFromUser,
+  addUserQuestion
+} from '../actions/users';
 import {
   addQuestions,
   answerQuestion,
-  removeAnswerFromQuestion
+  removeAnswerFromQuestion,
+  addQuestion
 } from '../actions/questions';
 import {batch} from 'react-redux';
 
@@ -25,11 +36,23 @@ export function saveAnswer(authedUser, qid, answer) {
       dispatch(answerQuestion(authedUser, qid, answer));
       dispatch(addUserAnswer(authedUser, qid, answer));
       saveQuestionAnswer({authedUser, qid, answer}).catch(e => {
-        console.log('caught error', e);
+        console.log('Caught error', e);
         batch(() => {
           dispatch(removeAnswerFromQuestion(authedUser, qid, answer));
           dispatch(removeAnswerFromUser(authedUser, qid, answer));
         });
       });
     });
+}
+
+export function handleAddQuestion(question) {
+  return dispatch =>
+    saveQuestion(question)
+      .then(question => {
+        batch(() => {
+          dispatch(addQuestion(question));
+          dispatch(addUserQuestion(question));
+        });
+      })
+      .catch(e => console.log('Caught error', e));
 }

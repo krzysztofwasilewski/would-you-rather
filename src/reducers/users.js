@@ -1,9 +1,11 @@
 import {
   ADD_USERS,
   ADD_USER_ANSWER,
-  REMOVE_ANSWER_FROM_USER
+  REMOVE_ANSWER_FROM_USER,
+  ADD_USER_QUESTION
 } from '../actions/users';
 import {omit} from 'ramda';
+
 class User {
   constructor(fromUserObject) {
     Object.assign(this, fromUserObject);
@@ -38,6 +40,14 @@ export default function (state = {}, action) {
         [action.user]: new User({
           ...state[action.user],
           answers: omit([action.qid], state[action.user].answers)
+        })
+      };
+    case ADD_USER_QUESTION:
+      return {
+        ...state,
+        [action.author]: new User({
+          ...state[action.author],
+          questions: [...state[action.author].questions, action.id]
         })
       };
     default:

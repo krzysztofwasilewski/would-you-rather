@@ -1,4 +1,3 @@
-import {saveQuestion} from '../utils/API';
 export const ADD_QUESTIONS = 'ADD_QUESTIONS';
 export const ADD_QUESTION = 'ADD_QUESTION';
 export const ADD_QUESTION_ANSWER = 'ADD_QUESTION_ANSWER';
@@ -11,7 +10,7 @@ export function addQuestions(questions) {
   };
 }
 
-function addQuestion(question) {
+export function addQuestion(question) {
   return {
     type: ADD_QUESTION,
     question
@@ -25,14 +24,6 @@ export function answerQuestion(authedUser, qid, answer) {
     qid,
     answer
   };
-}
-
-export function handleAddQuestion(question) {
-  console.log('Save question action');
-  return dispatch =>
-    saveQuestion(question)
-      .then(q => dispatch(addQuestion(q)))
-      .catch(e => console.log('caught error', e));
 }
 
 export function removeAnswerFromQuestion(authedUser, qid, answer) {

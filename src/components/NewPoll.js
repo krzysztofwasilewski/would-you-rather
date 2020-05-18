@@ -1,16 +1,18 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {handleAddQuestion} from '../actions/questions';
+import {handleAddQuestion} from '../actions/shared';
 import {values, isEmpty, pipe, any} from 'ramda';
 
 class NewPoll extends Component {
   state = {optionOneText: '', optionTwoText: ''};
+
   handleTextChange = option => e => {
     const val = e.target.value;
     e.preventDefault();
     this.setState({[option]: val});
   };
+
   handleSubmitForm = e => {
     e.preventDefault();
     this.props.handleAddQuestion({
@@ -19,6 +21,7 @@ class NewPoll extends Component {
     });
     this.props.history.push('/');
   };
+
   render() {
     return (
       <div className='centerColumn'>
@@ -26,7 +29,6 @@ class NewPoll extends Component {
           <fieldset>
             <legend>Would you rather:</legend>
             <div className='newPollOptions'>
-              {/* <li> */}
               <label htmlFor={this.state.optionOneText}>Option 1:</label>
               <input
                 type='text'
@@ -36,8 +38,6 @@ class NewPoll extends Component {
                 onChange={this.handleTextChange('optionOneText')}
                 placeholder='Eg. be rich'
               />
-              {/* </li> */}
-              {/* <li> */}
               <label htmlFor={this.state.optionTwoText}>Option 2:</label>
               <input
                 type='text'
@@ -46,7 +46,6 @@ class NewPoll extends Component {
                 onChange={this.handleTextChange('optionTwoText')}
                 placeholder='Eg. be smart'
               />
-              {/* </li> */}
             </div>
             <button
               type='submit'
