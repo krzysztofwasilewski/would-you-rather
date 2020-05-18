@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import AnsweredPoll from './AnsweredPoll';
 import UnansweredPoll from './UnansweredPoll';
 import {connect} from 'react-redux';
+import {Page404} from './Page404';
+import {withRouter} from 'react-router-dom';
+
+const QuestionNotFound = withRouter(Page404);
 
 const PollPage = ({answered, exists, id}) => {
   return exists ? (
@@ -10,7 +14,7 @@ const PollPage = ({answered, exists, id}) => {
       {answered ? <AnsweredPoll id={id} /> : <UnansweredPoll id={id} />}
     </div>
   ) : (
-    <h1 style={{marginTop: 200}}>404: Question not found!</h1>
+    <QuestionNotFound />
   );
 };
 
