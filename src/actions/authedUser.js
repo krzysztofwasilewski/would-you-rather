@@ -3,14 +3,24 @@ export const LOG_OUT = 'LOG_OUT'
 
 
 export function logIn(userId) {
-    window.sessionStorage.setItem('userId', userId)
+    try {
+        window.sessionStorage.setItem('userId', userId)
+    }
+    catch {
+        // intentionally ignore, there's nothing clever we could do here.
+    }
     return {
         type: LOG_IN,
         userId
     }
 }
 export function logOut() {
-    window.sessionStorage.setItem('userId', '')
+    try {
+        window.sessionStorage.setItem('userId', '')
+    }
+    catch {
+        // intentionally ignore, there's nothing clever we could do here.
+    }
     return {
         type: LOG_OUT
     }
